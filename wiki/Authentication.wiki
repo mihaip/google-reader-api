@@ -2,7 +2,9 @@
 
 = OAuth (preferred) =
 
-= ClientLogin =
+[http://code.google.com/apis/accounts/docs/GettingStarted.html#OAuth OAuth] is the preferred authentication mechanism for both [http://code.google.com/apis/accounts/docs/OAuth.html web] and [http://code.google.com/apis/accounts/docs/OAuthForInstalledApps.html installed] apps. Using the scope `http://www.google.com/reader/api/` obtain a request token, authorize it, exchange it for an access token, and make requests as usual, passing in the OAuth token in the `Authorization:` HTTP header. You may find the [http://googlecodesamples.com/oauth_playground/index.php OAuth Playground] useful in experimenting with all this.
+
+= !ClientLogin =
 
 Installed (desktop) apps may also use [http://code.google.com/apis/accounts/docs/AuthForInstalledApps.html ClientLogin] to perform authenticated requests against Google Reader's API. The app provides the user's username and password, and obtains an authentication token in response (the value after `Auth=` in the response). That token can be be included as an HTTP header in all requests (format `Authorization:GoogleLogin auth=<auth value>`).
 
