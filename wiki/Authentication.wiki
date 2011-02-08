@@ -2,7 +2,9 @@
 
 = OAuth (preferred) =
 
-[http://code.google.com/apis/accounts/docs/GettingStarted.html#OAuth OAuth] is the preferred authentication mechanism for both [http://code.google.com/apis/accounts/docs/OAuth.html web] and [http://code.google.com/apis/accounts/docs/OAuthForInstalledApps.html installed] apps. Using the scope `http://www.google.com/reader/api/` obtain a request token, authorize it, exchange it for an access token, and make requests as usual, passing in the OAuth token in the `Authorization:` HTTP header. You may find the [http://googlecodesamples.com/oauth_playground/index.php OAuth Playground] useful in experimenting with all this.
+[http://code.google.com/apis/accounts/docs/GettingStarted.html#OAuth OAuth] is the preferred authentication mechanism for both [http://code.google.com/apis/accounts/docs/OAuth.html web] and [http://code.google.com/apis/accounts/docs/OAuthForInstalledApps.html installed] apps. Using the scope `https://www.google.com/reader/api/` obtain a request token, authorize it, exchange it for an access token, and make requests as usual, passing in the OAuth token in the `Authorization:` HTTP header. You may find the [http://googlecodesamples.com/oauth_playground/index.php OAuth Playground] useful in experimenting with all this.
+
+The `https://www.google.com/reader/atom/` and `https://www.google.com/reader/subscription/export` scopes are supported as well for applications wish to use the Atom and OPML outputs. Additionally, HTTP versions of these HTTPS schemes  are also available.
 
 = !ClientLogin =
 
