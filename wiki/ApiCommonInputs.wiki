@@ -1,0 +1,10 @@
+#summary Inputs that all API methods support
+
+Parameters that all (nearly) API methods support.
+
+|| Parameter || Description || Default value || Example ||
+|| `client` || Identifier for the program making the API requests. Especially meant for browser-based applications that do not control the user agent. || _none_ || `feedly` ||
+|| `T` || ActionToken (required for `POST` requests) || _none_ || `//RQ5Ala9wTbGxisuYqJALKg` ||
+|| `hl` || Language to use for the response. If not specified, will be inferred based on`Accept-Language` HTTP header, IP, user preferences, etc. || _none_ || `en` ||
+
+See also [Authentication] for authentication-related parameters that should be provided to all methods that require authentication.
