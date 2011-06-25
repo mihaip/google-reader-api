@@ -10,6 +10,10 @@ Given a StreamId and fetching options, returns the contents of the items in that
 
 `GET`
 
+= Authentication =
+
+Optional. Public `Stream`s don't require authentication, but to request private streams or to see user-specific data (e.g. read state), authentication is needed.
+
 = Input =
 (see ApiCommonInputs)
 
