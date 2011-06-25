@@ -1,5 +1,5 @@
 #summary Describes XSRF-preventing action tokens.
 
-To protect against [http://en.wikipedia.org/wiki/Cross-site_request_forgery XSRF] attacks, all state-changing methods require an action token in addition to [Authentication authentication tokens]. The token can be fetched at `/reader/api/0/token` and should be passed in to state-changing requests (generally `POST` requests) with the `T` parameter (see ApiCommonInputs). 
+To protect against [http://en.wikipedia.org/wiki/Cross-site_request_forgery XSRF] attacks, all state-changing methods require an action token in addition to an [Authentication authentication token]. The token can be fetched at `/reader/api/0/token` and should be passed in to state-changing requests (generally `POST` requests) with the `T` parameter (see ApiCommonInputs). 
 
 The token is valid for 30 minutes. If it is missing or invalid, a 401 HTTP response code will be given and the response will have a `X-Reader-Google-Bad-Token: true` HTTP header.
