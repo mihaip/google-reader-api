@@ -7,4 +7,9 @@ Parameters that all (nearly) API methods support.
 || `T` || ActionToken (required for `POST` requests) || _none_ || `//RQ5Ala9wTbGxisuYqJALKg` ||
 || `hl` || Language to use for the response. If not specified, will be inferred based on`Accept-Language` HTTP header, IP, user preferences, etc. || _none_ || `en` ||
 
+Parameters that most API methods that return data support.
+
+|| Parameter || Description || Default value || Example ||
+|| `output` || Output format. Possible values are `json` ([http://www.json.org/ JavaScript Object Notation]) and `xml` (an XML representation of JSON). || `xml` || `json` ||
+
 See also [Authentication] for authentication-related parameters that should be provided to all methods that require authentication.
