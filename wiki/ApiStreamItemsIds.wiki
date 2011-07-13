@@ -32,6 +32,6 @@ Optional. Public `Stream`s don't require authentication, but to request private 
 
 A JSON object with a single key, `itemRefs` containing an array of objects. Each object has the following properties:
 
-  * `id`: ItemId for the item (signed base 10 version).
+  * `id`: [ItemId] for the item (signed base 10 version).
   * `timestampUsec`: time in microseconds since the epoch that the item appeared in the direct stream that it was in.
   * ``directStreamIds`: array of [StreamId]s representing the direct streams that this item came from.
