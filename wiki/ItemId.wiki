@@ -1,6 +1,6 @@
 #summary Description of item IDs exposed by the Google Reader API.
 
-Items in Reader are referenced by globally unique item IDs. IDs are generally derived from the `<id>` attribute in Atom feeds and the '<guid>` attribute in RSS feeds. In the absence of those, the item URL may be used to generat the ID. In cases where the feed does not provide IDs or URLs (or they are not deemed "trustworthy", e.g. if more than one item in the feed response has the same ID or URL), then the ID will be computed from a signature of certain feed item properties (title, body, etc.).
+Items in Reader are referenced by globally unique item IDs. IDs are generally derived from the `<id>` attribute in Atom feeds and the `<guid>` attribute in RSS feeds. In the absence of those, the item URL may be used to generat the ID. In cases where the feed does not provide IDs or URLs (or they are not deemed "trustworthy", e.g. if more than one item in the feed response has the same ID or URL), then the ID will be computed from a signature of certain feed item properties (title, body, etc.).
 
 Internally, item IDs are 64-bit numbers, and can be represented in API inputs and outputs in two forms:
 
