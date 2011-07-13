@@ -1,6 +1,6 @@
 #summary Describes the `/reader/api/0/stream/items/contents` method
 
-Given a collection of [ItemId]s and fetching options, returns the contents of those items].
+Given a collection of [ItemId]s and fetching options, returns the contents of those items.
 
 = Path =
 
