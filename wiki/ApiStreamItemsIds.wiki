@@ -1,6 +1,6 @@
 #summary Describes the `/reader/api/0/stream/items/ids` method
 
-Given one or more [StreamId]s and fetching options, returns the IDs of the items in those [Stream]s. Getting just item IDs is significantly cheaper than getting [ApiStreamContents stream contents]. If you need to do filtering of items, it is highly encouraged to do this at the ID level before fetching [ApiItemContents item contents] for the subset of items that remain.
+Given one or more [StreamId]s and fetching options, returns the IDs of the items in those [Stream]s. Getting just item IDs is significantly cheaper than getting [ApiStreamContents stream contents]. If you need to do filtering of items, it is highly encouraged to do this at the ID level before fetching [ApiStreamItemsContents item contents] for the subset of items that remain.
 
 = Path =
 
