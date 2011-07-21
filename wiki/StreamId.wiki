@@ -22,6 +22,7 @@ Tag stream IDs are of the form `user/<user ID>/<tail>`. `<user ID>` is the user'
 System tags have a tail of the form `state/com.google/<type>`. Here are common item-level tags:
 
    * `user/-/state/com.google/read`: applied to read items
+   * `user/-/state/com.google/kept-unread`: applied to items that have been kept unread, removed onc they are marked as read
    * `user/-/state/com.google/starred`: applied to starred items
    * `user/-/state/com.google/broadcast`: applied to shared items
    * `user/-/state/com.google/like`: applied to liked items
