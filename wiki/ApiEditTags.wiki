@@ -1,0 +1,28 @@
+#summary Describes the `/reader/api/0/edit-tag` method
+
+Adds or removes [http://code.google.com/p/google-reader-api/wiki/StreamId#Tag_stream_IDs tags] from items.
+
+= Path =
+
+`/reader/api/0/edit-tag`
+
+= Methods supported =
+
+`POST` (this is a state-changing request)
+
+= Authentication =
+
+Required.
+
+= Input =
+(see ApiCommonInputs)
+
+|| Parameter || Description || Default value || Example ||
+|| `i` || ItemId of the item whose tags you wish to edit. The parameter may be repeated to edit the tags of multiple items at once more efficient from a backend perspective than multiple requests). || _none_ || `1386864356855952360 ` ||
+|| `s` || StreamId of the origin stream that the item whose tags is edited came from. May be skipped, though that is *less efficient*. If present, there must be as many `s` parameters as there are `i` parameters (they're treated as parallel arrays). || _none_ || `feed/http://www.engadget.com/rss.xml` ||
+|| `a` || StreamId to add to the item. May be repeated to add more than one tag || _none_ || `user/-/label/folder1` ||
+|| `r` || StreamId to remove from the item. May be repeated to remove more than one tag|| _none_ || `user/-/state/com.google/starred` ||
+
+= Response =
+
+The string `OK`
