@@ -20,7 +20,6 @@ Optional. Public `Stream`s don't require authentication, but to request private 
 || Parameter || Description || Default value || Example ||
 || `s` || StreamId for which to fetch the item IDs. The parameter may be repeated to fetch the item IDs from multiple streams at once (more efficient from a backend perspective than multiple requests). || _none_, but at least one value is required || `user/-/state/com.google/read` ||
 || `n` || Number of item IDs to return (up to a maximum of 10,000). When fetching multiple streams, this many items will be returned from each stream, unless the `merge` parameter is true. || _none_, but is required  || 1000 ||
-|| `c` || Continuation token. If a response does not represent all items in a timestamp range, it will have a `continuation` attribute. The same request can be re-issued with the value of that attribute put in this parameter to get more items. || _none_ || `CJLRnpeNpakC` ||
 || `xt` || Tag to exclude. Items that have this tag will not be in the response. Commonly used to hide read items (i.e. items with the read tag)  || _none_ || `user/-/state/com.google/read` ||
 || `nt` || Timestamp (in seconds since the epoch) of the newest item that you're interested in  || _none_ || `1309018028` ||
 || `ot` || Timestamp (in seconds since the epoch) of the oldest item that you're interested in || _none_ || `1306426059` ||
