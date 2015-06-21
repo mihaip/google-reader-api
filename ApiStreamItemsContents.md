@@ -1,0 +1,30 @@
+Given a collection of [ItemId](ItemId.md)s and fetching options, returns the contents of those items.
+
+# Path #
+
+`/reader/api/0/stream/items/contents`
+
+# Methods supported #
+
+`GET` and `POST` (this is not a state-changing servlet, but `POST` is supported in case so many item IDs are passed in that URL length limits (2K) become an issue).
+
+# Authentication #
+
+Optional. To see user-specific data (e.g. read state), authentication is needed.
+
+# Input #
+(see ApiCommonInputs)
+
+| Parameter | Description | Default value | Example |
+|:----------|:------------|:--------------|:--------|
+| `i`       | ItemId for which to fetch the item contents. The parameter may be repeated to fetch the contents of multiple items (more efficient from a backend perspective than multiple requests). | _none_, but at least one value is required | `1386864356855952360` |
+| `output`  | Output format. Possible values are `json` ([JavaScript Object Notation](http://www.json.org/)), `atom` ([RFC 4287](http://tools.ietf.org/html/rfc4287)) and `atom-hifi` (a "high-fidelity" Atom output mode that preserves XML namespaced elements from the original feed). | `json`        | `atom`  |
+| `sharers` | Encoded list of possible sharers, for whom comments will be fetched. Obtained from ApiFriendList.  | _none_        | `CKfbjpeeFxgB` |
+| `likes`   | Whether or not to fetch likes | `true`        | `false` |
+| `comments` | Whether or not to fetch comments | `true`        | `false` |
+| `trans`   | Whether or not to translate the response into the user's display language | `false`       | `true`  |
+| `mediaRss` | Whether or not to include [MediaRSS](http://video.search.yahoo.com/mrss) elements from the original feed in the response | `false`       | `true`  |
+
+# Response #
+
+See StreamContents

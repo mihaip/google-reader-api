@@ -1,0 +1,34 @@
+Given a StreamId and fetching options, returns the contents of the items in that [Stream](Stream.md).
+
+# Path #
+
+`/reader/api/0/stream/contents/`_<escaped StreamId>_
+
+# Methods supported #
+
+`GET`
+
+# Authentication #
+
+Optional. Public `Stream`s don't require authentication, but to request private streams or to see user-specific data (e.g. read state), authentication is needed.
+
+# Input #
+(see ApiCommonInputs)
+
+| Parameter | Description | Default value | Example |
+|:----------|:------------|:--------------|:--------|
+| `c`       | Continuation token. If a StreamContents response does not represent all items in a timestamp range, it will have a `continuation` attribute. The same request can be re-issued with the value of that attribute put in this parameter to get more items. | _none_        | `CJLRnpeNpakC` |
+| `xt`      | Tag to exclude. Items that have this tag will not be in the response. Commonly used to hide read items (i.e. items with the read tag)  | _none_        | `user/-/state/com.google/read` |
+| `nt`      | Timestamp (in seconds since the epoch) of the newest item that you're interested in  | _none_        | `1309018028` |
+| `ot`      | Timestamp (in seconds since the epoch) of the oldest item that you're interested in | _none_        | `1306426059` |
+| `n`       | Number of items to return (up to a maximum of 1,000). Fewer items are returned faster, but larger batches are more efficient for the backend (i.e. one 40 item request is more efficient than two 20 item requests) | 20            | 40      |
+| `r`       | Ranking method. Possible values are: `n`: newest-first (reverse chronological), `o`: oldest-first (chronological),  `c`: items with most recent commens first | `n`           | `o`     |
+| `sharers` | Encoded list of possible sharers, for whom comments will be fetched. Obtained from ApiFriendList.  | _none_        | `CKfbjpeeFxgB` |
+| `likes`   | Whether or not to fetch likes | `true`        | `false` |
+| `comments` | Whether or not to fetch comments | `true`        | `false` |
+| `trans`   | Whether or not to translate the response into the user's display language | `false`       | `true`  |
+| `mediaRss` | Whether or not to include [MediaRSS](http://video.search.yahoo.com/mrss) elements from the original feed in the response | `false`       | `true`  |
+
+# Response #
+
+See StreamContents

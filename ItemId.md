@@ -1,0 +1,19 @@
+Items in Reader are referenced by globally unique item IDs. IDs are generally derived from the `<id>` attribute in Atom feeds and the `<guid>` attribute in RSS feeds. In the absence of those, the item URL may be used to generat the ID. In cases where the feed does not provide IDs or URLs (or they are not deemed "trustworthy", e.g. if more than one item in the feed response has the same ID or URL), then the ID will be computed from a signature of certain feed item properties (title, body, etc.).
+
+Internally, item IDs are 64-bit numbers, and can be represented in API inputs and outputs in two forms:
+
+**Long form**: The prefix `tag:google.com,2005:reader/item/` followed by the ID as an **unsigned** **base 16** number that is **0-padded** so that it's always 16 characters wide.
+
+**Short form**: The ID as a **signed** **base 10** number.
+
+Here's some sample mappings between the two forms:
+
+| Long form | Short form | notes |
+|:----------|:-----------|:------|
+| `tag:google.com,2005:reader/item/5d0cfa30041d4348 ` |` 6705009029382226760` |       |
+| `tag:google.com,2005:reader/item/024025978b5e50d2` | `162170919393841362` | Long form needs 0-padding |
+| `tag:google.com,2005:reader/item/fb115bd6d34a8e9f` | `-355401917359550817` | Short form ends up being negative |
+
+All API methods that take item IDs accept either form, but different outputs will contain different forms (for historical reasons).
+
+If at all possible, you should not attempt to do conversions between forms. Store IDs from responses as string blobs, and pass them back as is to other API methods.

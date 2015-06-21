@@ -1,0 +1,28 @@
+Allows a [stream](StreamId.md) to be subscribed to, unsubscribed from, or an existing subscription to be edited.
+
+# Path #
+
+`/reader/api/0/subscription/edit`
+
+# Methods supported #
+
+`POST` (this is a state-changing request)
+
+# Authentication #
+
+Required.
+
+# Input #
+(see ApiCommonInputs)
+
+| Parameter | Description | Default value | Example |
+|:----------|:------------|:--------------|:--------|
+| `s`       | StreamId to operate on. The parameter may be repeated to edit multiple subscriptions at once (more efficient from a backend perspective than multiple requests). | _none_        | `feed/http://www.engadget.com/rss.xml` |
+| `ac`      | Action to perform on the given StreamId. Possible values are `subscribe`, `unsubscribe` and `edit` | _none_        | `subscribe` |
+| `a`       | StreamId to add the subscription to (generally a user label). May be repeated to add to more than one folder | _none_        | `user/-/label/folder1` |
+| `r`       | StreamId to remove the subscription from (generally a user label). May be repeated to remove from more than one folder | _none_        | `user/-/label/folder1` |
+| `title`   | Title to use for the subscription. For the `subscribe` action, if not specified then the feed's current title will be used. Can be used with the `edit` action to rename a subscription. | _none_        | `My favorite subscription` |
+
+# Response #
+
+The string `OK`

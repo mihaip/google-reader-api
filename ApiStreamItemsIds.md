@@ -1,0 +1,35 @@
+Given one or more [StreamId](StreamId.md)s and fetching options, returns the IDs of the items in those [Stream](Stream.md)s. Getting just item IDs is significantly cheaper than getting [stream contents](ApiStreamContents.md). If you need to do filtering of items, it is highly encouraged to do this at the ID level before fetching [item contents](ApiStreamItemsContents.md) for the subset of items that remain.
+
+# Path #
+
+`/reader/api/0/stream/items/ids`
+
+# Methods supported #
+
+`GET`
+
+# Authentication #
+
+Optional. Public `Stream`s don't require authentication, but to request private streams or to see user-specific data (e.g. read state), authentication is needed.
+
+# Input #
+(see ApiCommonInputs)
+
+| Parameter | Description | Default value | Example |
+|:----------|:------------|:--------------|:--------|
+| `s`       | StreamId for which to fetch the item IDs. The parameter may be repeated to fetch the item IDs from multiple streams at once (more efficient from a backend perspective than multiple requests). | _none_, but at least one value is required | `user/-/state/com.google/read` |
+| `n`       | Number of item IDs to return (up to a maximum of 10,000). When fetching multiple streams, this many items will be returned from each stream, unless the `merge` parameter is true. | _none_, but is required  | 1000    |
+| `xt`      | Tag to exclude. Items that have this tag will not be in the response. Commonly used to hide read items (i.e. items with the read tag)  | _none_        | `user/-/state/com.google/read` |
+| `nt`      | Timestamp (in seconds since the epoch) of the newest item that you're interested in  | _none_        | `1309018028` |
+| `ot`      | Timestamp (in seconds since the epoch) of the oldest item that you're interested in | _none_        | `1306426059` |
+| `r`       | Ranking method. Possible values are: `n`: newest-first (reverse chronological), `o`: oldest-first (chronological),  `a`: "magic", `c`: items with most recent commens first | `n`           | `o`     |
+| `merge`   | If true, the response will be combined into a single set of items before ranking and `n` limit application. | `false`       | `true`  |
+| `includeAllDirectStreamIds` | If true, all direct [StreamId](StreamId.md)s will be included in the response. If false, feed [StreamId](StreamId.md)s will not be included. | `false`       | `true`  |
+
+# Response #
+
+A JSON object with a single key, `itemRefs` containing an array of objects. Each object has the following properties:
+
+  * `id`: [ItemId](ItemId.md) for the item (signed base 10 version).
+  * `timestampUsec`: time in microseconds since the epoch that the item appeared in the direct stream that it was in.
+  * ```directStreamIds``: array of [StreamId](StreamId.md)s representing the direct streams that this item came from.
